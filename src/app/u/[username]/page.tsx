@@ -38,13 +38,16 @@ export default function SendMessage() {
   const params = useParams<{ username: string }>();
   const username = params.username;
 
-  const {
-    complete,
-    completion,
-    isLoading: isSuggestLoading,
-    error,
-  } = useCompletion({
-    api: '/api/suggest-messages',
+  // const {
+  //   complete,
+  //   completion,
+  //   isLoading: isSuggestLoading,
+  //   error,
+  // } = useCompletion({
+  //   api: '/api/suggest-messages',
+  //   initialCompletion: initialMessageString,
+  // });
+  const { completion, error } = useCompletion({
     initialCompletion: initialMessageString,
   });
 
@@ -144,7 +147,7 @@ export default function SendMessage() {
           <Button
             onClick={fetchSuggestedMessages}
             className="my-4"
-            disabled={isSuggestLoading}
+            // disabled={isSuggestLoading}
           >
             Suggest Messages
           </Button>
